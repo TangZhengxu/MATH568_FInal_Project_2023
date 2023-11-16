@@ -10,6 +10,7 @@ The y-axis can be considered firing frequency or the amount of released neural t
 ```PN_KC_connect.m``` is a helper function to connect PN to KC either randomly or following a spatial distribution. 
 
 Specify this function using ```w_matrix = PN_KC_connect(23,[45,45],6,"full random",1,false);``` can build a completely random connection, each KC randomly choose 6 from 23 PNs. Here is the heatmap of connectivity correlation to $KC_{1,1}$:
+
 ![full_random_KC](plots/fullRandomKCconnetivity.png)
 
 Using  ```w_matrix = PN_KC_connect(23,[45,45],6,"local random",1,false);``` can make KCs close to each other have a higher chance to share connectivty:
