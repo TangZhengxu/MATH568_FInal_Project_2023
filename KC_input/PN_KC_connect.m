@@ -14,7 +14,7 @@ rng(random_seed); % set random seed
 if (random_mode == "full random")
     weight_matrix = ones([KC_d PN_N])/PN_N; % randomly select each PN with even weights
 elseif (random_mode == "local random")
-    PN_KC_calyx_affinity = calyx(KC_d,10,5,PN_N);
+    PN_KC_calyx_affinity = calyx(KC_d,11,4,PN_N);
     weight_matrix = normalize(PN_KC_calyx_affinity,3,"norm",1);
 end
 PNKConnectivity = zeros([KC_d PN_N]);
