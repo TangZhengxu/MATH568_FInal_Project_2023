@@ -1,7 +1,8 @@
-function [spiketimes]=LIF2D_simple_network(n,W,gsyn,taus,KC_data)
+function [spiketimes]=LIF2D_simple_network(KC_d,W,gsyn,taus,KC_data)
 %RUN by entering the following at the matlab command window prompt:
 %  [spiketimes]=LIF2D_simple_network(n,W,gsyn,taus);
 
+n = KC_d(1)*KC_d(2);
 total_T = size(KC_data, 3);
 % Set model parameter values
 a=0.02;
@@ -20,8 +21,10 @@ rng(100);
 % Iapp = 4*ones(n,total_T);
 
 % values alternate between high and low current
-values = [4.5 3.6]';
-Iapp = repmat(values, ceil(n/2), total_T) + 0.1*rand(n,total_T);
+i1 = 4.5; i2 = 3.8;
+values = [i1 i2; i2 i1;]';
+Iapp = repmat(values, ceil(KC_d(1)/2), ceil(KC_d(2)/2), total_T); % + 0.1*rand(n,total_T);
+Iapp = reshape(Iapp, n, []);
 
 % randomly turn off input to 50 neurons
 % turnoff_indx = randi([1, 100], 1, 50);
@@ -32,11 +35,20 @@ Iapp = repmat(values, ceil(n/2), total_T) + 0.1*rand(n,total_T);
 % Iapp(10)=4;
 
 figure(1)
-imagesc(Iapp);
+Iapp_1 = reshape(Iapp(:, 1), KC_d(1), KC_d(2));
+imagesc(Iapp_1);
+clim([0, max(Iapp_1(:))]);
 colorbar;
-xlabel('KC neuron');
-ylabel('Timesteps');
-title('KC data');
+xlabel('KC neuron x');
+ylabel('KC neuron y');
+title('Iapp');
+
+% figure(1)
+% imagesc(Iapp);
+% colorbar;
+% xlabel('KC neuron');
+% ylabel('Timesteps');
+% title('KC data');
 
 % pulse of applied current
 % ton=20;
@@ -44,10 +56,16 @@ title('KC data');
 % pulsei=6;
 
 %Set initial values for v & u
-% random initial conditions
-v=-70*ones(n,1) + 10*rand(n,1);
-u=-14*ones(n,1) + 5*rand(n,1);
+% same initial conditions
+v=-65*ones(n,1);
+u=-12*ones(n,1);
 s=zeros(n,1);
+
+% %Set initial values for v & u
+% % random initial conditions
+% v=-70*ones(n,1) + 10*rand(n,1);
+% u=-14*ones(n,1) + 5*rand(n,1);
+% s=zeros(n,1);
 % % % linearly spaced initial conditions
 % v=-70*ones(n,1) + linspace(-10,8,n)';
 % u=-14*ones(n,1) + linspace(1,7,n)';
@@ -120,8 +138,15 @@ end
 
 % Plot raster plot
 figure(2)
-%scatter(spiketimes(:,1),spiketimes(:,2),15)
+scatter(spiketimes(:,1),spiketimes(:,2),15)
 plot(spiketimes(:,1)/deltat,spiketimes(:,2),'o','MarkerFaceColor','b','MarkerSize',5)
+
+% hold on; % Enable hold on to overlay plots
+% oddNeurons = mod(spiketimes(:,2), 2) == 1; % Check for odd neuron IDs
+% evenNeurons = ~oddNeurons; % Neurons with even IDs
+% plot(spiketimes(oddNeurons, 1)/deltat, spiketimes(oddNeurons, 2), 'o', 'MarkerFaceColor', 'b', 'MarkerSize', 5);
+% plot(spiketimes(evenNeurons, 1)/deltat, spiketimes(evenNeurons, 2), 'o', 'MarkerFaceColor', 'r', 'MarkerSize', 5);
+
 xlim([0,total_T])
 ylim([0,n+1])
 
