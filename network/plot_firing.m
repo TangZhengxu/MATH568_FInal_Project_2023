@@ -12,6 +12,7 @@ counts = reshape(counts, KC_d(1), KC_d(2));
 
 figure;
 imagesc(counts);
+colormap(gray);
 clim([0, max(counts(:))]);
 colorbar;
 xlabel('KC neuron x');

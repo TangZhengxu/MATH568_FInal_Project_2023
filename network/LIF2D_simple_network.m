@@ -13,18 +13,17 @@ vthresh=30;
 
 rng(100);
 
-% % set input current
-% Iapp = reshape(KC_data, n, total_T);
+% % from KC model
+Iapp = reshape(KC_data, n, total_T);
 
-% % set applied current, pulse or constant
 % %  constant applied current
 % Iapp = 4*ones(n,total_T);
 
-% values alternate between high and low current
-i1 = 4.5; i2 = 3.8;
-values = [i1 i2; i2 i1;]';
-Iapp = repmat(values, ceil(KC_d(1)/2), ceil(KC_d(2)/2), total_T); % + 0.1*rand(n,total_T);
-Iapp = reshape(Iapp, n, []);
+% % values alternate between high and low current
+% i1 = 4.5; i2 = 3.8;
+% values = [i1 i2; i2 i1;]';
+% Iapp = repmat(values, ceil(KC_d(1)/2), ceil(KC_d(2)/2), total_T); % + 0.1*rand(n,total_T);
+% Iapp = reshape(Iapp, n, []);
 
 % randomly turn off input to 50 neurons
 % turnoff_indx = randi([1, 100], 1, 50);
@@ -35,9 +34,10 @@ Iapp = reshape(Iapp, n, []);
 % Iapp(10)=4;
 
 figure(1)
-Iapp_1 = reshape(Iapp(:, 1), KC_d(1), KC_d(2));
+Iapp_1 = reshape(max(Iapp, [], 2), KC_d(1), KC_d(2));
 imagesc(Iapp_1);
 clim([0, max(Iapp_1(:))]);
+colormap(gray);
 colorbar;
 xlabel('KC neuron x');
 ylabel('KC neuron y');
