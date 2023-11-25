@@ -26,7 +26,8 @@ Mushroom body is the learning center for most arthropods (including insects, shr
     - [ ] Local-random connectivity
       - [ ] No inhibition (Yijie is working on this)
       - [ ] Local inhibition (Yijie is working on this)
-      - [ ] Global inhibition 
+      - [ ] Global inhibition
+- [ ] How inhibition range (connection strength decays with distance) affect sparseness, responding fraction (Sachin is working on this)
 
 ### Analysis simulation results:
 - [x] Odor responses sparseness 
