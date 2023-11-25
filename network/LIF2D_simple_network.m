@@ -37,18 +37,19 @@ figure(1)
 Iapp_1 = reshape(max(Iapp, [], 2), KC_d(1), KC_d(2));
 imagesc(Iapp_1);
 clim([0, max(Iapp_1(:))]);
-colormap(gray);
+colormap(pink);
 colorbar;
 xlabel('KC neuron x');
 ylabel('KC neuron y');
-title('Iapp');
+title('KC input');
 
 % figure(1)
 % imagesc(Iapp);
+% colormap(pink);
 % colorbar;
-% xlabel('KC neuron');
-% ylabel('Timesteps');
-% title('KC data');
+% xlabel('Timesteps');
+% ylabel('KC index');
+% title('KC input');
 
 % pulse of applied current
 % ton=20;
@@ -136,10 +137,10 @@ for i=2:totalpts
 end
 
 
-% Plot raster plot
-figure(2)
-scatter(spiketimes(:,1),spiketimes(:,2),15)
-plot(spiketimes(:,1)/deltat,spiketimes(:,2),'o','MarkerFaceColor','b','MarkerSize',5)
+% % Plot raster plot
+% figure(2)
+% scatter(spiketimes(:,1),spiketimes(:,2),15)
+% plot(spiketimes(:,1)/deltat,spiketimes(:,2),'o','MarkerFaceColor','b','MarkerSize',5)
 
 % hold on; % Enable hold on to overlay plots
 % oddNeurons = mod(spiketimes(:,2), 2) == 1; % Check for odd neuron IDs
@@ -147,8 +148,8 @@ plot(spiketimes(:,1)/deltat,spiketimes(:,2),'o','MarkerFaceColor','b','MarkerSiz
 % plot(spiketimes(oddNeurons, 1)/deltat, spiketimes(oddNeurons, 2), 'o', 'MarkerFaceColor', 'b', 'MarkerSize', 5);
 % plot(spiketimes(evenNeurons, 1)/deltat, spiketimes(evenNeurons, 2), 'o', 'MarkerFaceColor', 'r', 'MarkerSize', 5);
 
-xlim([0,total_T])
-ylim([0,n+1])
+% xlim([0,total_T])
+% ylim([0,n+1])
 
 clearvars -except Iapp spiketimes n W gsyn taus;
 

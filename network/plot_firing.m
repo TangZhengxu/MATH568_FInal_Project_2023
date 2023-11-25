@@ -12,16 +12,16 @@ counts = reshape(counts, KC_d(1), KC_d(2));
 
 figure;
 imagesc(counts);
-colormap(gray);
+colormap(pink);
 clim([0, max(counts(:))]);
 colorbar;
 xlabel('KC neuron x');
 ylabel('KC neuron y');
 title('Total firing');
 
-figure;
-bar(1:n, counts(:));
-xlabel('KC neuron');
-ylabel('Total firing');
-title('Total firing');
-end
+% figure;
+% bar(1:n, counts(:));
+% xlabel('KC neuron');
+% ylabel('Total firing');
+% title('Total firing');
+% end

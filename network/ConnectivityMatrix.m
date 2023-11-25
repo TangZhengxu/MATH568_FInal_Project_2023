@@ -89,8 +89,14 @@ end
 clear crad allconnects noconnect checki i j
 
 figure(1)
-imshow(W, 'InitialMagnification', 'fit');
-title('Connectivity Matrix (W)');
+% imshow(W, 'InitialMagnification', 'fit');
+imagesc(W);
+% clim([0, max(W(:))]);
+colormap(gray);
+% colorbar;
+xlabel('KC index');
+ylabel('KC index');
+title('Connectivity Matrix');
 % % % % % %
 
 end
