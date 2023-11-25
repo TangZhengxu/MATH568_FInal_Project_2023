@@ -7,45 +7,8 @@ function [W]=ConnectivityMatrix(KC_d)
 % set network size n
 
 % % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % % 2-D grid with 4-neighbors
+% % % 2-D grid with 9-neighbors
 % % Define the dimensions of the grid
-% rows = KC_d(1);
-% cols = KC_d(2);
-% 
-% W = zeros(rows*cols, rows*cols);
-% 
-% for i = 1:rows
-%     for j = 1:cols
-%         % Calculate the index of the current item
-%         current_item = (i - 1) * cols + j;
-%         
-%         % Define indices of neighboring items
-%         left = (i - 1) * cols + j - 1;
-%         right = (i - 1) * cols + j + 1;
-%         top = (i - 2) * cols + j;
-%         bottom = i * cols + j;
-%         
-%         % Check and update adjacency matrix
-%         if j > 1
-%             W(current_item, left) = 1; % Left neighbor
-%         end
-%         if j < cols
-%             W(current_item, right) = 1; % Right neighbor
-%         end
-%         if i > 1
-%             W(current_item, top) = 1; % Top neighbor
-%         end
-%         if i < rows
-%             W(current_item, bottom) = 1; % Bottom neighbor
-%         end
-%     end
-% end
-% 
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % 2-D grid with 9-neighbors
-% Define the dimensions of the grid
 rows = KC_d(1);
 cols = KC_d(2);
 
@@ -54,8 +17,6 @@ W = zeros(rows*cols, rows*cols);
 for i = 1:rows
     for j = 1:cols
         % Calculate the index of the current item
-        current_item = (i - 1) * cols + j;
-
         current_item = [i j];
         
         % Define indices of neighboring items
@@ -63,11 +24,6 @@ for i = 1:rows
         right = [min(i+1,cols) j];
         top = [i max(j-1,1)];
         bottom = [i min(j+1,rows)];
-
-%         left = current_item - 1;
-%         right = current_item + 1;
-%         top = (i - 2) * cols + j;
-%         bottom = i * cols + j;
 
         top_left = [left(1) top(2)];
         top_right = [right(1) top(2)];
@@ -83,8 +39,8 @@ for i = 1:rows
         end
     end
 end
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear crad allconnects noconnect checki i j
 

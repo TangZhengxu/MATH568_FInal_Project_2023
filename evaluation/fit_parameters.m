@@ -1,4 +1,4 @@
-%! before running this code, please add all subfolders into path 
+%! before running this code, please add all subfolders into path
 clear
 
 % this is a full size KC model, it will take about 60 min to run the code
