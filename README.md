@@ -20,12 +20,13 @@ Mushroom body is the learning center for most arthropods (including insects, shr
 - [x] Finding A value that allows 20% KCs will be activated by an odor on average (no inhibition)
 - [ ] Simulating KC responses to 110 odors with conditions below (it took ~30 min on my computer to iterate through 110 odors with no inhibition model):
     - [ ] Full-random PN-KC connectivity
-      - [ ] No inhibition (Yijie is working on this)
-      - [ ] Local inhibition (Yijie is working on this)
+    - codes and results are in ```./simulation_results```
+      - [x] No inhibition *for no inhibititon, I set gsyn = 0*
+      - [x] Local inhibition *for local inhibititon, I set gsyn = -5, tau = 50*
       - [ ] Global inhibition
     - [ ] Local-random connectivity
-      - [ ] No inhibition (Yijie is working on this)
-      - [ ] Local inhibition (Yijie is working on this)
+      - [x] No inhibition 
+      - [x] Local inhibition
       - [ ] Global inhibition
 - [ ] How inhibition range (connection strength decays with distance) affect sparseness, responding fraction (Sachin is working on this)
 
