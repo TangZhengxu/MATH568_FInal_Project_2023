@@ -26,16 +26,16 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear crad allconnects noconnect checki i j
-
-figure(1)
-% imshow(W, 'InitialMagnification', 'fit');
-imagesc(W);
-% clim([0, max(W(:))]);
-colormap(gray);
-% colorbar;
-xlabel('KC index');
-ylabel('KC index');
-title('Connectivity Matrix');
+% 
+% figure(1)
+% % imshow(W, 'InitialMagnification', 'fit');
+% imagesc(W);
+% % clim([0, max(W(:))]);
+% colormap(gray);
+% % colorbar;
+% xlabel('KC index');
+% ylabel('KC index');
+% title('Connectivity Matrix');
 % % % % % %
 
 % i_x = ceil(KC_d(1)/2); i_y = ceil(KC_d(2)/2);

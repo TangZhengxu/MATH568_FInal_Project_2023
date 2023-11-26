@@ -33,15 +33,15 @@ Iapp = reshape(KC_data, n, total_T);
 % Iapp = 2*ones(n,1);
 % Iapp(10)=4;
 
-figure(1)
-Iapp_1 = reshape(max(Iapp, [], 2), KC_d(1), KC_d(2));
-imagesc(Iapp_1);
-clim([0, max(Iapp_1(:))]);
-colormap(pink);
-colorbar;
-xlabel('KC neuron x');
-ylabel('KC neuron y');
-title('KC input');
+% figure(1)
+% Iapp_1 = reshape(max(Iapp, [], 2), KC_d(1), KC_d(2));
+% imagesc(Iapp_1);
+% clim([0, max(Iapp_1(:))]);
+% colormap(pink);
+% colorbar;
+% xlabel('KC neuron x');
+% ylabel('KC neuron y');
+% title('KC input');
 
 % figure(1)
 % imagesc(Iapp);
@@ -103,7 +103,7 @@ for i=2:totalpts
     % uncomment if applied current pulse, comment otherwise
     %Iapp = pulsei*heavyside(t-ton)*heavyside(toff-t)*ones(n,1);
     
-    %Use Euler’s method to integrate eq.
+    %Use Eulers method to integrate eq.
     v = v + deltat*(0.04*v.^2 + 5*v + 140 - u + Iapp(:,i) + gsyn*W*s);
     u = u + deltat*(a*(b*v - u));
     %set v_tot,u_tot at this time point to the current value of v, u

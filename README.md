@@ -13,23 +13,19 @@ Mushroom body is the learning center for most arthropods (including insects, shr
 - [x] KC-APL inhibitory connection
     - [x] No inhibition
     - [x] Local inhibition
-    - [ ] Global inhibition (For global inhibition, it might be tricky to match the gsyn with local inhibition scenario?)
+    - [x] Global inhibition (For global inhibition, it might be tricky to match the gsyn with local inhibition scenario?)
 - [x] LIF-2D KC model
 
 ### Simulation:
 - [x] Finding A value that allows 20% KCs will be activated by an odor on average (no inhibition)
-- [ ] Simulating KC responses to 110 odors with conditions below (it took ~30 min on my computer to iterate through 110 odors with no inhibition model):
-    - [ ] Full-random PN-KC connectivity
-    - codes and results are in ```./simulation_results```
-      - [x] No inhibition *for no inhibititon, I set gsyn = 0*
-      - [x] Local inhibition *for local inhibititon, I set gsyn = -5, tau = 50*
-      - [ ] Global inhibition
-    - [ ] Local-random connectivity
-      - [x] No inhibition 
-      - [x] Local inhibition
-      - [ ] Global inhibition
 - [x] How inhibition range (connection strength decays with distance) affect sparseness, responding fraction (Sachin is working on this)
-      - [ ] Fit gsyn for different inhibition range: 5, 10, 20, 38, global inhibition (Yijie is working on this)
+- [x] Fit gsyn for different inhibition range: 5, 10, 20, 38, global inhibition
+
+```matlab
+sigmas = [0 5 10 20 38 100]; % 0 is no inhibition, 100 is all to all inhibition
+gsyn_values = [0 -0.15 -0.05 -0.02 -0.013  -0.01];
+```
+- [ ] Simulating KC responses to 110 odors with conditions below: local random vs full random PN KC connectivity * 6 inhibtion ranges * 110 odors. 9 hours remaining. (Yijie is working on this) corresponding files are in```./simulation_results/main_simulation_seed1```
 
 ### Analysis simulation results:
 - [x] Odor responses sparseness 
