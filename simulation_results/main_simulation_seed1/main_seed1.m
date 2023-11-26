@@ -3,7 +3,7 @@ clear
 
 % default parameters
 
-odor_N = 1;
+odor_N = 110;
 PN_N = 23; 
 KC_d = [45,45];
 KC_input_N = 6;
