@@ -4,7 +4,7 @@ function [W]=DecayingConnectivityMatrix(KC_d, conn_range)
 
 % connectivity range; higher the value, 
 % slower the decay of connectivity strength with distance
-% conn_range = 2.5;
+% conn_range = 2.5; set this as parameter
 
 n = KC_d(1)*KC_d(2);
 rows = KC_d(1);
