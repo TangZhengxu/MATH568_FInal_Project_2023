@@ -18,7 +18,7 @@ Mushroom body is the learning center for most arthropods (including insects, shr
 
 ### Simulation:
 - [x] Finding A value that allows 20% KCs will be activated by an odor on average (no inhibition)
-- [x] How inhibition range (connection strength decays with distance) affect sparseness, responding fraction (Sachin is working on this)
+- [x] How inhibition range (connection strength decays with distance) affect sparseness, responding fraction (Sachin) (path: `network/DecayingConnectivityMatrix.m`) 
 - [x] Fit gsyn for different inhibition range: 5, 10, 20, 38, global inhibition
 
 ```matlab
@@ -30,6 +30,7 @@ gsyn_values = [0 -0.15 -0.05 -0.02 -0.013  -0.01];
 ### Analysis simulation results:
 - [x] Odor responses sparseness 
 - [ ] Separability between odors for a given set of KC activities (we may need to discuss about this. Potential method we can use: inter-odor responses correlation coefficients | activated KC overlapped ratio | construct some simple linear separator to simulate don’ stream neuron and compare classifying performance after learning one odor?)
+    - [x] Implemented a softmax classifier to demonstrate separability (Sachin) (path: `evaluation/odor_prediction.m`) 
 
 
 ### Presentation (How long the presentation is? Probably we can start adding contents onto slides from the Monday) 
