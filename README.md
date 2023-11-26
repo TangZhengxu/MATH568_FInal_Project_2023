@@ -25,7 +25,7 @@ Mushroom body is the learning center for most arthropods (including insects, shr
 sigmas = [0 5 10 20 38 100]; % 0 is no inhibition, 100 is all to all inhibition
 gsyn_values = [0 -0.15 -0.05 -0.02 -0.013  -0.01];
 ```
-- [ ] Simulating KC responses to 110 odors with conditions below: local random vs full random PN KC connectivity * 6 inhibtion ranges * 110 odors. 9 hours remaining. (Yijie is working on this) corresponding files are in```./simulation_results/main_simulation_seed1```
+- [x] Simulating KC responses to 110 odors with conditions below: local random vs full random PN KC connectivity * 6 inhibtion ranges * 110 odors. 9 hours remaining. (Yijie is working on this) corresponding files are in```./simulation_results/main_simulation_seed1```
 
 ### Analysis simulation results:
 - [x] Odor responses sparseness 
