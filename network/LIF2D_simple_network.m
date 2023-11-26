@@ -96,6 +96,8 @@ spiketimes=[];
 %v_tot(1,:)=v';
 %u_tot(1,:)=u';
 
+hbar = waitbar(0, 'Running...'); % Create the progress bar
+
 % step through time to compute solution
 for i=2:totalpts
     t=i*deltat;
@@ -133,8 +135,13 @@ for i=2:totalpts
             s(j)=cellout;
             %s_tot(i,:)=s';
         end
-    end 
+    end
+
+    progress = i / totalpts;
+    waitbar(progress, hbar, sprintf('Progress: %.0f%%', progress * 100));
 end
+
+close(hbar);
 
 
 % % Plot raster plot

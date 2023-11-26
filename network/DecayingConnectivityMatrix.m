@@ -1,10 +1,10 @@
-function [W]=DecayingConnectivityMatrix(KC_d)
+function [W]=DecayingConnectivityMatrix(KC_d, conn_range)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 2-D grid with neighbor connectivity decaying with distance
 
 % connectivity range; higher the value, 
 % slower the decay of connectivity strength with distance
-conn_range = 2.5;
+% conn_range = 2.5;
 
 n = KC_d(1)*KC_d(2);
 rows = KC_d(1);
@@ -27,24 +27,30 @@ end
 
 clear crad allconnects noconnect checki i j
 
-figure(1)
-% imshow(W, 'InitialMagnification', 'fit');
-imagesc(W);
-% clim([0, max(W(:))]);
-colormap(gray);
-% colorbar;
-xlabel('KC index');
-ylabel('KC index');
-title('Connectivity Matrix');
-% % % % % %
-
-% i_x = ceil(KC_d(1)/2); i_y = ceil(KC_d(2)/2);
-% i = (i_x-1)*KC_d(2) + i_y; % choosing a middle index to visualize better
-% W_i = reshape(W(i, :), KC_d(1), KC_d(2));
-% figure;
-% imagesc(W_i);
-% colormap(pink);
-% colorbar;
+visualize = false;
+if visualize
+    figure(1)
+    % imshow(W, 'InitialMagnification', 'fit');
+    imagesc(W);
+    % clim([0, max(W(:))]);
+    colormap(gray);
+    % colorbar;
+    xlabel('KC index');
+    ylabel('KC index');
+    title('Connectivity Matrix');
+    % % % % % %
+    
+    i_x = ceil(KC_d(1)/2); i_y = ceil(KC_d(2)/2);
+    i = (i_x-1)*KC_d(2) + i_y; % choosing a middle index to visualize better
+    W_i = reshape(W(i, :), KC_d(1), KC_d(2));
+    figure;
+    imagesc(W_i);
+    colormap(pink);
+    colorbar;
+    xlabel('KC x');
+    ylabel('KC y');
+    title(['Connectivity of KC(' num2str(i_x) ', ' num2str(i_y) ')']);
+end
 
 end
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

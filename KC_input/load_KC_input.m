@@ -37,7 +37,7 @@ A = 0.035;
 
 % temp: for model developing purpose
 PN_N = 6;
-KC_d = [8,8];
+KC_d = [45,45];
 KC_input = 2;
 odor1_PN = odor1_PN(1:PN_N, :);
 w_matrix = PN_KC_connect(PN_N,KC_d,KC_input,"full random",1,false);
@@ -65,7 +65,7 @@ ylabel("KC input current")
 legend("KC_{1,1}","KC_{1,2}","KC_{2,2}")
 hold off;
 
-save('../data/KC_data.mat', 'KC_data');
+save('data/KC_data.mat', 'KC_data');
 
 % % input to KC at position of (m,n)
 % % m = 5;
