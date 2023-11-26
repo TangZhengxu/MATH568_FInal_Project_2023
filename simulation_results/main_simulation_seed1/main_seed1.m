@@ -20,12 +20,15 @@ connectivity_modes = ["full random" "local random"];
 experiment = struct;
 exp_i = 1;
 
+% set random seed of experiment
+rand_seed = 1;
+
 % load PN responses
 load("odor_PN_t.mat")
 
 % PN-KC connections
 for connect_mode = connectivity_modes
-    w_matrix = PN_KC_connect(PN_N,KC_d,KC_input_N,connect_mode,1,false);
+    w_matrix = PN_KC_connect(PN_N,KC_d,KC_input_N,connect_mode,rand_seed,false);
     
     for inh_i = 1:length(sigmas)
         experiment(exp_i).connectivity_mode = connect_mode;

@@ -1,8 +1,13 @@
+%! before running this code, please add all subfolders into path
 close all;
 clear;
 
 load("data/KC_data.mat");
-run('params.m');
+PN_N = 6;
+KC_d = [45,45];
+KC_input = 2;
+total_T = 2500;
+deltat = 0.5;
 
 taus = 50;
 gsyn = 0;
