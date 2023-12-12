@@ -12,8 +12,8 @@ deltat = 0.5;
 A = 0.005; 
 taus = 50;
 
-sigmas = [0 5 10 20 38 100]; % 0 is no inhibition, 100 is all to all inhibition
-gsyn_values = [0 -0.15 -0.05 -0.02 -0.013  -0.01];
+sigmas = [0 10 10 10 10 10]; % 0 is no inhibition, 100 is all to all inhibition
+gsyn_values = [0 -0.2 -0.1 -0.05 -0.02 -0.01];
 connectivity_modes = ["full random" "local random"];
 
 % create empty experiment
@@ -85,7 +85,7 @@ for connect_mode = connectivity_modes
     end
 end
 
-save('simulation_seed1.mat','experiment');
+save('simulation_2.mat','experiment');
         
 
 
