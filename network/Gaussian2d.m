@@ -38,4 +38,11 @@ gaussian_filter(gaussian_filter<0.01) = 0;
 % xlim(gca, [1, filter_size(1)]);
 % title(['Horizontal Slice at y = ', num2str(center_y)]);
 
+% figure(1);
+% plot(-22:22, gaussian_filter(center_y, :));
+% xlim(gca, [0, 22]);
+% title('Decay of connectivity weight with distance');
+% xlabel("r")
+% ylabel("w_{syn}")
+
 end
